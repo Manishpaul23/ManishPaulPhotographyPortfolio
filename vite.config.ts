@@ -4,10 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: "::",
-    port: 8080,
-  },
+  base: "/",   // 👈 ensure this is set
   plugins: [
     react(),
     mode === "development" && componentTagger(),
@@ -17,5 +14,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "./", // 👈 important for Netlify/Vercel static hosting
 }));
